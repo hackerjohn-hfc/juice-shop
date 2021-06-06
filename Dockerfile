@@ -22,6 +22,7 @@ LABEL maintainer="Bjoern Kimminich <bjoern.kimminich@owasp.org>" \
     org.opencontainers.image.revision=$VCS_REF \
     org.opencontainers.image.created=$BUILD_DATE
 WORKDIR /juice-shop
+COPY 4db8360919dc1b398a92c7c45911b7ac.txt /juice-shop/frontend/dist/frontend
 RUN addgroup --system --gid 1001 juicer && \
     adduser juicer --system --uid 1001 --ingroup juicer
 COPY --from=installer --chown=juicer /juice-shop .
